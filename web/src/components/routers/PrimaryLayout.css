@@ -1,0 +1,41 @@
+.BasicLayout {
+    height: 100%;
+}
+
+.BasicLayout_header {
+    background-color: #FFFFFF;
+    padding: 0 20px;
+    z-index: 100;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.12);
+}
+
+.BasicLaout_logo {
+    font-size: 28px;
+    width: 200px;
+    padding-left: 10px;
+    margin: 0;
+    float: left;
+    color: var(--primary-color);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.BasicLayout_navmenu {
+    float: right;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.BasicLayout_navmenu button {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.BasicLayout_cotent {
+    margin: 20px;
+    background: #FFFFFF;
+}
+
+.BasicLayout_login {
+    background: #FFFFFF;
+}
