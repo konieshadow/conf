@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface NamespaceService {
 
-    List<NamespaceBean> selectNamespace();
+    List<NamespaceBean> selectNamespaces();
+
+    List<String> selectAllNamespaceNames();
 
     NamespaceBean selectById(Long id);
 

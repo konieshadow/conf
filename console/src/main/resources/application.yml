@@ -3,8 +3,8 @@ debug: true
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:conf;MODE=mysql;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:h2:mem:conf;MODE=mysql;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     platform: h2
     username: sa
     password:

@@ -8,8 +8,10 @@ dependencies:
   babel-plugin-import: 1.13.0
   craco-antd: 1.18.1_489f5836e5f3c394702c56e2f910c524
   dva: 2.4.1_react-dom@16.13.1+react@16.13.1
+  monaco-editor: 0.20.0
   react: 16.13.1
   react-dom: 16.13.1_react@16.13.1
+  react-monaco-editor: 0.39.1_react@16.13.1
   react-scripts: 3.4.1
 lockfileVersion: 5.1
 packages:
@@ -1887,6 +1889,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-BtLoJrXdW8DVZauKP+bY4Kmiq7ubcJq+H/aCpRfvPF7RAT3RwR73Sg8szdc2YasbAlWBDrQ6Q+AFM0KwtQY+WQ==
+  /@types/react/16.9.46:
+    dependencies:
+      '@types/prop-types': 15.7.3
+      csstype: 3.0.2
+    dev: false
+    resolution:
+      integrity: sha512-dbHzO3aAq1lB3jRQuNpuZ/mnu+CdD3H0WVaaBQA8LTT3S33xhVBUj232T8M3tAhSWJs/D/UqORYUlJNl/8VQZg==
   /@types/stack-utils/1.0.1:
     dev: false
     resolution:
@@ -7759,6 +7768,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==
+  /monaco-editor/0.20.0:
+    dev: false
+    resolution:
+      integrity: sha512-hkvf4EtPJRMQlPC3UbMoRs0vTAFAYdzFQ+gpMb8A+9znae1c43q8Mab9iVsgTcg/4PNiLGGn3SlDIa8uvK1FIQ==
   /move-concurrently/1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -10055,6 +10068,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+  /react-monaco-editor/0.39.1_react@16.13.1:
+    dependencies:
+      '@types/react': 16.9.46
+      monaco-editor: 0.20.0
+      prop-types: 15.7.2
+      react: 16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.x
+    resolution:
+      integrity: sha512-D2GKJlPxEIwkad9n1L7K/J3rLZ/UlMItS44YPO4cGQCcUJyKdwJkhOtk7q8gCqVd2uu7jyfyb8U34iSe+z9Aeg==
   /react-redux/5.0.7_react@16.13.1+redux@3.7.2:
     dependencies:
       hoist-non-react-statics: 2.5.5
@@ -12562,6 +12586,8 @@ specifiers:
   babel-plugin-import: ^1.13.0
   craco-antd: ^1.18.1
   dva: ^2.4.1
+  monaco-editor: ^0.20.0
   react: ^16.13.1
   react-dom: ^16.13.1
+  react-monaco-editor: ^0.39.1
   react-scripts: 3.4.1

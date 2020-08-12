@@ -19,8 +19,13 @@ public class NamespaceController {
     private NamespaceService namespaceService;
 
     @GetMapping
-    public List<NamespaceBean> selectNamespace() {
-        return namespaceService.selectNamespace();
+    public List<NamespaceBean> selectNamespaces() {
+        return namespaceService.selectNamespaces();
+    }
+
+    @GetMapping("all")
+    public List<String> selectAllNamespaceNames() {
+        return namespaceService.selectAllNamespaceNames();
     }
 
     @GetMapping("{id}")

@@ -1,6 +1,6 @@
 package io.github.konieshadow.conf.common.domain.query;
 
-public class SelectConfigQuery {
+public class SelectConfigQuery extends PageQuery {
 
     private String dataId;
 

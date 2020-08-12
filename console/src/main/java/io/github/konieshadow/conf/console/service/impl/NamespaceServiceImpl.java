@@ -21,11 +21,19 @@ public class NamespaceServiceImpl implements NamespaceService {
     private NamespaceMapper namespaceMapper;
 
     @Override
-    public List<NamespaceBean> selectNamespace() {
+    public List<NamespaceBean> selectNamespaces() {
         QueryWrapper<Namespace> wrapper = new QueryWrapper<>();
         wrapper.select("id", "name", "key", "description");
         List<Namespace> records = namespaceMapper.selectList(wrapper);
         return ConverterUtil.toList(records, NamespaceServiceImpl::namespaceBeanConverter);
+    }
+
+    @Override
+    public List<String> selectAllNamespaceNames() {
+        QueryWrapper<Namespace> wrapper = new QueryWrapper<>();
+        wrapper.select("name");
+        List<Namespace> records = namespaceMapper.selectList(wrapper);
+        return ConverterUtil.toList(records, Namespace::getName);
     }
 
     @Override

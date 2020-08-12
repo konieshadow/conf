@@ -4,7 +4,6 @@ import io.github.konieshadow.conf.common.domain.ConfigBean;
 import io.github.konieshadow.conf.common.domain.OptResultBean;
 import io.github.konieshadow.conf.common.domain.PageResultBean;
 import io.github.konieshadow.conf.common.domain.query.PageQuery;
-import io.github.konieshadow.conf.common.util.Constants;
 import io.github.konieshadow.conf.common.domain.query.CreateConfigQuery;
 import io.github.konieshadow.conf.common.domain.query.SelectConfigQuery;
 import io.github.konieshadow.conf.common.domain.query.UpdateConfigQuery;
@@ -22,8 +21,8 @@ public class ConfigController {
     private ConfigService configService;
 
     @GetMapping
-    public PageResultBean<ConfigBean> getConfig(PageQuery<SelectConfigQuery> query) {
-        return configService.selectConfig(query);
+    public PageResultBean<ConfigBean> selectConfigs(SelectConfigQuery query) {
+        return configService.selectConfigs(query);
     }
 
     @GetMapping("{id}")
@@ -38,7 +37,7 @@ public class ConfigController {
     }
 
     @PutMapping
-    public ConfigBean createConfig(@Valid UpdateConfigQuery query) {
+    public ConfigBean updateConfig(@Valid UpdateConfigQuery query) {
         Long id = configService.updateConfig(query);
         return configService.selectConfigById(id);
     }
@@ -46,7 +45,7 @@ public class ConfigController {
     @DeleteMapping("{id}")
     public OptResultBean<Void> deleteConfig(@PathVariable Long id) {
         configService.delete(id);
-        return new OptResultBean();
+        return new OptResultBean<>();
     }
 
 }

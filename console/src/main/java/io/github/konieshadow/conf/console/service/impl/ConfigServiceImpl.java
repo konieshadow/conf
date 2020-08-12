@@ -25,20 +25,18 @@ public class ConfigServiceImpl implements ConfigService {
     private ConfigInfoMapper configInfoMapper;
 
     @Override
-    public PageResultBean<ConfigBean> selectConfig(PageQuery<SelectConfigQuery> query) {
+    public PageResultBean<ConfigBean> selectConfigs(SelectConfigQuery query) {
         QueryWrapper<ConfigInfo> wrapper = new QueryWrapper<>();
         wrapper.select("id", "data_id", "group_id", "namespace", "content", "description");
 
-        if (query.getData() != null) {
-            if (!StringUtils.isBlank(query.getData().getDataId())) {
-                wrapper.eq("data_id", query.getData().getDataId());
-            }
-            if (!StringUtils.isBlank(query.getData().getDataId())) {
-                wrapper.eq("group_id", query.getData().getGroupId());
-            }
-            if (!StringUtils.isBlank(query.getData().getDataId())) {
-                wrapper.eq("namespace", query.getData().getNamespace());
-            }
+        if (!StringUtils.isBlank(query.getNamespace())) {
+            wrapper.like("namespace", query.getNamespace());
+        }
+        if (!StringUtils.isBlank(query.getDataId())) {
+            wrapper.like("data_id", "%" + query.getDataId() + "%");
+        }
+        if (!StringUtils.isBlank(query.getGroupId())) {
+            wrapper.like("group_id", "%" + query.getGroupId() + "%");
         }
 
         IPage<ConfigInfo> list = configInfoMapper.selectPage(new Page<>(query.getCurrent(), query.getSize()), wrapper);
@@ -94,6 +92,7 @@ public class ConfigServiceImpl implements ConfigService {
             return null;
         }
         ConfigBean result = new ConfigBean();
+        result.setId(source.getId());
         result.setDataId(source.getDataId());
         result.setGroupId(source.getGroupId());
         result.setNamespace(source.getNamespace());

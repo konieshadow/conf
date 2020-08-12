@@ -9,7 +9,7 @@ import io.github.konieshadow.conf.common.domain.query.UpdateConfigQuery;
 
 public interface ConfigService {
 
-    PageResultBean<ConfigBean> selectConfig(PageQuery<SelectConfigQuery> query);
+    PageResultBean<ConfigBean> selectConfigs(SelectConfigQuery query);
 
     ConfigBean selectConfigById(Long id);
 

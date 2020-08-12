@@ -5,7 +5,8 @@ import { connect } from 'dva';
 import { Link, Switch, Route, Redirect } from 'dva/router';
 import MENU_DEFINE from '../../utils/menus';
 import LayoutHeader from '../LayoutHeader';
-import ConfigPage from '../pages/ConfigPage';
+import ConfigListPage from '../pages/ConfigListPage';
+import CreateConfigPage from '../pages/CreateConfigPage';
 import NamespacePage from '../pages/NamespacePage';
 import UserPage from '../pages/UserPage';
 
@@ -18,10 +19,10 @@ const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 Spin.setDefaultIndicator(loadingIcon);
 
 function PrimaryLayout(props) {
-    const { dispatch, match, loading, userInfo } = props;
+    const { dispatch, location, loading, userInfo } = props;
 
     useEffect(() => {
-        dispatch({ type: 'main/fetchUserInfo' });
+        dispatch({ type: 'main/fetchInitData' });
     }, [dispatch]);
 
     return (
@@ -32,7 +33,7 @@ function PrimaryLayout(props) {
                     <Menu
                         mode="inline"
                         defaultOpenKeys={getMenuOpenKeys(MENU_DEFINE)}
-                        selectedKeys={getMenuSelectedKeys(MENU_DEFINE, match.path)}
+                        selectedKeys={getMenuSelectedKeys(MENU_DEFINE, location.pathname)}
                         style={{ height: '100%', borderRight: 0 }}
                     >
                         { renderMenus(MENU_DEFINE) }
@@ -44,9 +45,10 @@ function PrimaryLayout(props) {
                             !userInfo ? <Redirect to="/login" /> : (
                                 <Switch>
                                     <Redirect from="/" exact  to="configs" />
-                                    <Route path="/configs" exact component={ConfigPage} />
-                                    <Route path="/namespaces" exact component={NamespacePage} />
-                                    <Route path="/users" exact component={UserPage} />
+                                    <Route path="/configs" exact component={ ConfigListPage } />
+                                    <Route path="/configs/create" exact component={ CreateConfigPage } />
+                                    <Route path="/namespaces" exact component={ NamespacePage } />
+                                    <Route path="/users" exact component={ UserPage } />
                                 </Switch>
                             )
                         )

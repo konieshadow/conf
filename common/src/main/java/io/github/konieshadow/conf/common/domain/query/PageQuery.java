@@ -1,12 +1,10 @@
 package io.github.konieshadow.conf.common.domain.query;
 
-public class PageQuery<T> {
+public class PageQuery {
 
     private int current;
 
     private int size;
-
-    private T data;
 
     public PageQuery() {
     }
@@ -14,12 +12,6 @@ public class PageQuery<T> {
     public PageQuery(int current, int size) {
         this.current = current;
         this.size = size;
-    }
-
-    public PageQuery(int current, int size, T data) {
-        this.current = current;
-        this.size = size;
-        this.data = data;
     }
 
     public int getCurrent() {
@@ -36,14 +28,6 @@ public class PageQuery<T> {
 
     public void setSize(int size) {
         this.size = size;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 
     @Override

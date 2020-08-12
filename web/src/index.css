@@ -4,6 +4,7 @@
 
 #root {
     height: 100%;
+    min-width: 1060px;
 }
 
 .fullscreen {
@@ -12,4 +13,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.search-pane {
+    background: #ffffff;
+    padding: 10px;
+}
+
+.data-pane {
+    background: #ffffff;
+    margin-top: 24px;
+}
+
+.data-pane .ant-table-pagination.ant-pagination {
+    margin: 16px 16px;
+}
+
+.page-title {
+    font-size: 18px;
+}
+
+.edit-pane {
+    background: #ffffff;
+    padding: 16px;
 }
